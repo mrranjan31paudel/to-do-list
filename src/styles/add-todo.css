@@ -1,0 +1,17 @@
+.add-todo-box {
+    width: calc(100% - 42px);
+    height: 10vmin;
+}
+
+.add-todo-text {
+    width: 100%;
+    padding: 0 20px;
+    display: block;
+    height: 10vmin;
+    font-size: calc(10px + 1vmin);
+    border: 1px solid rgb(224, 224, 224); 
+}
+
+.add-todo-text:hover {
+    border: 2px solid rgb(97, 218, 255);
+}

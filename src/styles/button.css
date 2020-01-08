@@ -1,0 +1,13 @@
+.button-gray-button {
+    background: #dbdada;
+    border: 1px solid #919191;
+    color: rgb(14, 14, 14);
+    margin: 5px;
+}
+
+.button-blue-button{
+    background: #244cff;
+    border: 1px solid #919191;
+    color: whitesmoke;
+    margin: 5px;
+}

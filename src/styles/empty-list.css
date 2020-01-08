@@ -1,0 +1,16 @@
+.empty-list {
+    width: 100%;
+    background: white;
+    height: 20vmin;
+    margin: 5px 0;
+    color: rgb(129, 129, 129);
+    
+}
+
+.empty-list p {
+    text-align: center;
+    margin: auto;
+    line-height: 20vmin;
+    font-size: calc(20px + 1vmin);
+}
+

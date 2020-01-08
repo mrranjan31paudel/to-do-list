@@ -1,20 +1,36 @@
 .list-item {
+	position: relative;
 	height: 10vmin;
 	padding: 0 20px;
 	font-size: calc(10px + 1vmin);
 	font-weight: 500;
 	display: flex;
-	justify-content: space-between;
+	flex-direction: row;
 	align-items: center;
 	border-top: 1px solid #c3c3c3;
 	background: white;
 	overflow: hidden;
 }
 
-/* .list-item.p {
-	line-height: 36px;
-} */
-
 .check-box {
 	cursor: pointer;
+	margin: 10px;
+}
+
+.delete-button {
+	position: absolute;
+	right: 20px;
+	width: 30px;
+	height: 30px;
+	background-color: transparent;
+	border: none;
+}
+
+.delete-button:hover {
+	background: rgba(230, 105, 105, 0.829);
+	cursor: pointer;
+}
+
+.delete-button img {
+	width: 100%;
 }

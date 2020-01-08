@@ -9,7 +9,11 @@ class Todolist extends React.Component {
 		return(
 			<ul className="todo-list">
 				{value.map((val) => 
-				<Listitem key={val.id} taskString={val.title} onChange={()=>this.props.onCheckBoxClick(val.id)} checkStatus={val.checked}/>)}
+				<Listitem key={val.id} 
+				taskString={val.title} 
+				onChange={()=>this.props.onCheckBoxClick(val.id)} 
+				onDeleteClick={()=>this.props.onDeleteClick(val.id)}
+				checkStatus={val.checked}/>)}
 			</ul>
 		);
   }

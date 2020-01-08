@@ -39,12 +39,34 @@ class App extends React.Component {
     });
   }
 
-  checkBoxHandle = (indexOftask) => {
-    const formerPortion = this.state.data.slice(0, indexOftask);
-    const toChange = {id:this.state.data[indexOftask].id, title:this.state.data[indexOftask].title, checked: this.state.data[indexOftask].checked};
-    const laterPortion = this.state.data.slice(indexOftask+1);
+  idToIndexCalculation = (clickedItemId) => {
+    let indexOfItem = null;
+    for(indexOfItem=0; indexOfItem<this.state.data.length; ++indexOfItem){
+      if(this.state.data[indexOfItem].id===clickedItemId){
+        break;
+      }
+    };
+    return indexOfItem;
+  }
+
+  checkBoxHandle = (clickedItemId) => {
+    const indexOfItem = this.idToIndexCalculation(clickedItemId);
+    const formerPortion = this.state.data.slice(0, indexOfItem);
+    const toChange = {id:this.state.data[indexOfItem].id, title:this.state.data[indexOfItem].title, checked: this.state.data[indexOfItem].checked};
+    const laterPortion = this.state.data.slice(indexOfItem+1);
+
     this.setState({
       data : [...formerPortion, {id:toChange.id, title: toChange.title, checked: !toChange.checked}, ...laterPortion],
+    });
+  }
+
+  onDeleteClickHandle = (clickedItemId) => {
+    const indexOfItem = this.idToIndexCalculation(clickedItemId);
+    const formerPortion = this.state.data.slice(0, indexOfItem);
+    const laterPortion = this.state.data.slice(indexOfItem+1);
+    
+    this.setState({
+      data : [...formerPortion, ...laterPortion],
     });
   }
 
@@ -68,7 +90,8 @@ class App extends React.Component {
         <Addtodo onKeyDown={this.taskInputCompleted}/>
         {
           this.filterDataToRender().length!==0 ? //if
-          <Todolist value={this.filterDataToRender()} onCheckBoxClick={this.checkBoxHandle}/> : //else
+          <Todolist value={this.filterDataToRender()} 
+            onCheckBoxClick={this.checkBoxHandle} onDeleteClick={this.onDeleteClickHandle}/> : //else
           <Emptylist/>
         }
       </div>
